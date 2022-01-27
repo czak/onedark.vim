@@ -233,7 +233,7 @@ call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
 call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
 call s:h("FoldColumn", {}) " 'foldcolumn'
-call s:h("SignColumn", {}) " column where signs are displayed
+call s:h("SignColumn", { "bg": s:cursor_grey }) " column where signs are displayed
 call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -545,14 +545,17 @@ call s:h("xmlTagName", { "fg": s:red })
 " Plugin Highlighting {{{
 
 " airblade/vim-gitgutter
-call s:h("GitGutterAdd", { "fg": s:green })
-call s:h("GitGutterChange", { "fg": s:yellow })
-call s:h("GitGutterDelete", { "fg": s:red })
+call s:h("GitGutterAdd", { "fg": s:green, "bg": s:cursor_grey })
+call s:h("GitGutterChange", { "fg": s:yellow, "bg": s:cursor_grey })
+call s:h("GitGutterDelete", { "fg": s:red, "bg": s:cursor_grey })
 
 " dense-analysis/ale
 call s:h("ALEError", { "fg": s:red, "gui": "underline", "cterm": "underline" })
 call s:h("ALEWarning", { "fg": s:yellow, "gui": "underline", "cterm": "underline"})
 call s:h("ALEInfo", { "gui": "underline", "cterm": "underline"})
+call s:h("ALEErrorSign", { "fg": s:red, "bg": s:cursor_grey  })
+call s:h("ALEWarningSign", { "fg": s:yellow, "bg": s:cursor_grey  })
+call s:h("ALEInfoSign", { })
 
 " easymotion/vim-easymotion
 call s:h("EasyMotionTarget", { "fg": s:red, "gui": "bold", "cterm": "bold" })
